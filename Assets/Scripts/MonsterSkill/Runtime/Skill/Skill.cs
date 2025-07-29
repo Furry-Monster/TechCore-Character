@@ -1,4 +1,4 @@
-using UnityEngine;
+using System;
 
 namespace MonsterSkill.Runtime
 {
@@ -10,7 +10,8 @@ namespace MonsterSkill.Runtime
         Cooldown,
     }
 
-    public struct Skill
+    [Serializable]
+    public struct Skill : ISerializable<Skill>
     {
         public int Id { get; set; }
 
@@ -18,10 +19,10 @@ namespace MonsterSkill.Runtime
 
         public string Description { get; set; }
 
+        public bool IsBuff { get; set; }
+
         public SkillState State { get; set; }
 
         public ITrigger Trigger { get; set; }
-
-        public IDeployer Deployer { get; set; }
     }
 }

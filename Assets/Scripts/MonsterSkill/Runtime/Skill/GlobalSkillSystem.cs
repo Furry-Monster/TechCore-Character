@@ -2,28 +2,28 @@ using System.Collections.Generic;
 
 namespace MonsterSkill.Runtime
 {
-    public static class GlobalSkillMgr
+    public static class GlobalSkillSystem
     {
-        private static readonly Dictionary<int, Skill> _skills = new();
+        private static readonly Dictionary<int, Skill> Skills = new();
 
         public static void AddSkill(int id, Skill skill)
         {
-            _skills[id] = skill;
+            Skills[id] = skill;
         }
 
         public static void RemoveSkill(int id)
         {
-            _skills.Remove(id);
+            Skills.Remove(id);
         }
 
         public static Skill GetSkill(int id)
         {
-            return _skills[id];
+            return Skills[id];
         }
 
         public static bool HasSkill(int id)
         {
-            return _skills.ContainsKey(id);
+            return Skills.ContainsKey(id);
         }
     }
 }
